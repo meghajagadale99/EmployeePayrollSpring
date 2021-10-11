@@ -1,3 +1,12 @@
+/******************************************************************************
+ *  Purpose: Class is implemented for creating the POJO class
+ *  		@Data, @Entity will tell the spring framework that this is POJO class
+ *
+ *  @author  Megha Jagadale
+ *  @version 1.0
+ *  @since   10-10-2021
+ *
+ ******************************************************************************/
 package com.bridgelabz.employeepayroll.model;
 
 import lombok.Data;
