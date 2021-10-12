@@ -11,6 +11,7 @@
 package com.bridgelabz.employeepayroll.service;
 
 import com.bridgelabz.employeepayroll.dto.EmployeeDTO;
+import com.bridgelabz.employeepayroll.exception.CustomException;
 import com.bridgelabz.employeepayroll.model.EmployeeData;
 import com.bridgelabz.employeepayroll.repository.EmployeeRepository;
 import org.modelmapper.ModelMapper;
@@ -44,11 +45,7 @@ public class EmployeeService {
      * @return employee payroll data object
      */
     public EmployeeData getEmployeeById(int id) {
-        Optional<EmployeeData> employeeData = employeeRepository.findById(id);
-        if (employeeData.isPresent()) {
-            return employeeData.get();
-        }
-        return null;
+        return employeeRepository.findById(id).orElseThrow(() -> new CustomException("with this not"));
     }
 
     /**
@@ -123,7 +120,7 @@ public class EmployeeService {
             employeeRepository.delete(employeeData.get());
             return "Employee Record is deleted successfully.";
         }
-        return "Record does not exists with this id : " + id;
+        throw new CustomExc=eption("Record does not exist with this id:"+id);
     }
 
 
